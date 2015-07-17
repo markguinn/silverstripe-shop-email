@@ -37,7 +37,7 @@ mailing to this list.
 The only adapter included is for Mailgun, but you could easily write one for
 MailChimp, ConstantContact or Silverstripe's email newsletter module.
 
-By default this feature is turned off. To turn it off add something like the
+By default this feature is turned off. To turn it on add something like the
 following yml config:
 
 ```

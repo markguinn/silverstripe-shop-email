@@ -76,7 +76,7 @@ class FollowUpEmail extends DataObject
 
 		$instructions = '';
 		foreach ($this->getSubstitutions() as $k => $v) {
-			$instructions .= "<li><strong>$k</strong>: $v</li>";
+			$instructions .= '<li><strong>{{{' . $k . '}}}</strong>: ' . $v . '</li>';
 		}
 
 		$fields->addFieldToTab('Root.Main', LiteralField::create(
