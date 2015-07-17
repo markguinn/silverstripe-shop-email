@@ -66,14 +66,19 @@ class FollowUpEmailTest extends SapphireTest
 	}
 
 	public function test_uses_sent_at_for_quotes() {
-		$this->updateCartDates(10, 'QuoteSentAt');
-		$followUp = $this->objFromFixture('FollowUpEmail', 'quote1'); /** @var FollowUpEmail $followUp */
-		$msg = '';
-		$followUp->sendToApplicableOrders(function($m) use (&$msg) { $msg = $m; });
-		$this->assertEmailSent('test@example.com');
-		$this->assertStringStartsWith("Sending '2: 10 days after QuoteSent' to test@example.com for order ", $msg);
-		$email = $this->findEmail('test@example.com');
-		$this->assertRegExp('/Checkout Now/', $email['content']); // checks for {{{QuoteButton}}} substitution
+		if (class_exists('Quotable')) {
+			$this->updateCartDates(10, 'QuoteSentAt');
+			$followUp = $this->objFromFixture('FollowUpEmail', 'quote1');
+			/** @var FollowUpEmail $followUp */
+			$msg = '';
+			$followUp->sendToApplicableOrders(function ($m) use (&$msg) {
+				$msg = $m;
+			});
+			$this->assertEmailSent('test@example.com');
+			$this->assertStringStartsWith("Sending '2: 10 days after QuoteSent' to test@example.com for order ", $msg);
+			$email = $this->findEmail('test@example.com');
+			$this->assertRegExp('/Checkout Now/', $email['content']); // checks for {{{QuoteButton}}} substitution
+		}
 	}
 
 	protected function updateCartDates($days, $field='LastEdited') {
