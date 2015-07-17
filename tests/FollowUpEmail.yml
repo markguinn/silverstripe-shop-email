@@ -151,12 +151,12 @@ Order:
         ShippingAddressID: =>Address.foobar
         BillingAddressID: =>Address.foobar
         Total: 41
-    quote:
-        Name: Other cart
-        Status: QuoteSent
-        QuoteReference: Q1234
-        Member: =>Member.joebloggs
-        Total: 200
+#    quote:
+#        Name: Other cart
+#        Status: QuoteSent
+#        QuoteReference: Q1234
+#        Member: =>Member.joebloggs
+#        Total: 200
 
 Product_OrderItem:
     cart_socks:

@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  *
  * @author Mark Guinn <mark@adaircreative.com>
  * @date 09.30.2014
@@ -65,24 +65,24 @@ class FollowUpEmailTest extends SapphireTest
 		$this->assertRegExp('/FollowUpController\/claim/', $email['content']); // checks for {{{ClaimButton}}} substitution
 	}
 
-	public function test_uses_sent_at_for_quotes() {
-		if (class_exists('Quotable')) {
-			$this->updateCartDates(10, 'QuoteSentAt');
-			$followUp = $this->objFromFixture('FollowUpEmail', 'quote1');
-			/** @var FollowUpEmail $followUp */
-			$msg = '';
-			$followUp->sendToApplicableOrders(function ($m) use (&$msg) {
-				$msg = $m;
-			});
-			$this->assertEmailSent('test@example.com');
-			$this->assertStringStartsWith("Sending '2: 10 days after QuoteSent' to test@example.com for order ", $msg);
-			$email = $this->findEmail('test@example.com');
-			$this->assertRegExp('/Checkout Now/', $email['content']); // checks for {{{QuoteButton}}} substitution
-		}
-	}
+//	public function test_uses_sent_at_for_quotes() {
+//		if (class_exists('Quotable')) {
+//			$this->updateCartDates(10, 'QuoteSentAt');
+//			$followUp = $this->objFromFixture('FollowUpEmail', 'quote1');
+//			/** @var FollowUpEmail $followUp */
+//			$msg = '';
+//			$followUp->sendToApplicableOrders(function ($m) use (&$msg) {
+//				$msg = $m;
+//			});
+//			$this->assertEmailSent('test@example.com');
+//			$this->assertStringStartsWith("Sending '2: 10 days after QuoteSent' to test@example.com for order ", $msg);
+//			$email = $this->findEmail('test@example.com');
+//			$this->assertRegExp('/Checkout Now/', $email['content']); // checks for {{{QuoteButton}}} substitution
+//		}
+//	}
 
 	protected function updateCartDates($days, $field='LastEdited') {
 		$date = date('Y-m-d H:i:s', time() - $days * 24 * 60 * 60 - 3600);
 		DB::query("UPDATE \"Order\" SET \"$field\" = '$date'");
 	}
-} 
+}

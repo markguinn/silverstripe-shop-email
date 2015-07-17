@@ -237,7 +237,7 @@ class FollowUpEmail extends DataObject
 			->leftJoin('FollowUpEmail_Orders',
 				"\"Order\".\"ID\" = \"FollowUpEmail_Orders\".\"OrderID\"
 					AND \"FollowUpEmail_Orders\".\"FollowUpEmailID\" = '{$this->ID}'")
-			->where('FollowUpEmail_Orders.FollowUpEmailID IS NULL')
+			->where('"FollowUpEmail_Orders"."FollowUpEmailID" IS NULL')
 			->filter(array(
 				'Status'             => $this->getStatusesArray(),
 				"$field:LessThan"    => date('Y-m-d H:i:s', time() - ($this->DaysAfter * 24 * 60 * 60)),
@@ -258,4 +258,4 @@ class FollowUpEmail extends DataObject
 			}
 		}
 	}
-} 
+}
