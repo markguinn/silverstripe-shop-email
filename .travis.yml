@@ -9,15 +9,19 @@ php:
 
 env:
   - DB=MYSQL CORE_RELEASE=3.1
-  - DB=MYSQL CORE_RELEASE=3.2
 
 matrix:
   include:
     - php: 5.6
       env: DB=PGSQL CORE_RELEASE=3.1
     - php: 5.6
+      env: DB=SQLITE CORE_RELEASE=3.1
+    - php: 5.6
+      env: DB=SQLITE CORE_RELEASE=3.2
+    - php: 5.6
       env: DB=SQLITE CORE_RELEASE=master
   allow_failures:
+    - env: DB=SQLITE CORE_RELEASE=3.2
     - env: DB=SQLITE CORE_RELEASE=master
 
 before_script:

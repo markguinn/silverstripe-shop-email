@@ -4,7 +4,11 @@ SS Shop Email Extensions
 Provides automated followup emails and mass mailings for Silverstripe's Shop 
 module (https://github.com/burnbright/silverstripe-shop).
 
+[![Latest Stable Version](https://poser.pugx.org/markguinn/silverstripe-cloudassets/v/stable.png)](https://packagist.org/packages/markguinn/silverstripe-cloudassets)
+[![Latest Unstable Version](https://poser.pugx.org/markguinn/silverstripe-cloudassets/v/unstable.png)](https://packagist.org/packages/markguinn/silverstripe-cloudassets)
 [![Build Status](https://travis-ci.org/markguinn/silverstripe-shop-email.svg?branch=master)](https://travis-ci.org/markguinn/silverstripe-shop-email)
+[![License](https://poser.pugx.org/markguinn/silverstripe-cloudassets/license.png)](https://packagist.org/packages/markguinn/silverstripe-cloudassets)
+
 
 Follow up emails:
 -----------------
