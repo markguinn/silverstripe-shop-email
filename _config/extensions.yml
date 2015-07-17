@@ -1,0 +1,9 @@
+---
+Name: extensions
+---
+Order:
+  extensions:
+    - AddsEmailToMailingList
+Member:
+  extensions:
+    - AddsEmailToMailingList

@@ -1,0 +1,31 @@
+{
+  "name": "markguinn/silverstripe-shop-email",
+  "description": "Automated folloup emails and mass mailings for Silverstripe and SS Shop",
+  "type": "silverstripe-module",
+  "keywords": [
+    "silverstripe",
+    "email",
+    "mailing list",
+    "followup",
+    "automated",
+    "abandoned cart"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mark Guinn",
+      "email": "mark@adaircreative.com",
+      "homepage": "http://github.com/markguinn"
+    }
+  ],
+  "extra": {
+    "installer-name": "shop_email"
+  },
+  "require": {
+    "silverstripe/framework": "~3.1",
+    "burnbright/silverstripe-shop": "~1.0"
+  },
+  "suggest": {
+    "mailgun/mailgun-php": "Required if using the Mailgun adapter for mass mailings."
+  }
+}
