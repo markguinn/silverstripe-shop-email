@@ -245,6 +245,8 @@ class FollowUpEmail extends DataObject
 			))
 		;
 
+		$this->extend('updateApplicableOrders', $orders);
+
 		foreach ($orders as $order) {
 			$this->Orders()->add($order);
 			$email = $this->getEmailForOrder($order);
