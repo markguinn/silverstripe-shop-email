@@ -194,7 +194,8 @@ class FollowUpEmail extends DataObject
 
 		// Send to admin?
 		if ($this->To === self::TO_ADMIN) {
-			$emailAddress = Email::config()->admin_email;
+			$emailAddress = FollowUpEmail::config()->admin_email;
+			if (empty($emailAddress)) $emailAddress = Email::config()->admin_email;
 		}
 
 		// Send the email if possible
@@ -252,6 +253,8 @@ class FollowUpEmail extends DataObject
 			$email = $this->getEmailForOrder($order);
 
 			if ($email) {
+				$this->extend('updateEmail', $email, $order);
+
 				if ($logFunc && is_callable($logFunc)) {
 					call_user_func($logFunc, "Sending '{$this->getTitle()}' to {$email->To()} for order {$order->ID}");
 				}
