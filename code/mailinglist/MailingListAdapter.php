@@ -10,44 +10,46 @@
  */
 abstract class MailingListAdapter extends Object
 {
-	/**
-	 * @param MailingListEmail $email
-	 * @param string           $listID
-	 */
-	abstract function send(MailingListEmail $email, $listID='');
+    /**
+     * @param MailingListEmail $email
+     * @param string           $listID
+     */
+    abstract public function send(MailingListEmail $email, $listID='');
 
 
-	/**
-	 * @param string $emailAddress
-	 * @param array  $data - any additional data
-	 * @param string $listID
-	 */
-	abstract function add($emailAddress, array $data = array(), $listID='');
+    /**
+     * @param string $emailAddress
+     * @param array  $data - any additional data
+     * @param string $listID
+     */
+    abstract public function add($emailAddress, array $data = array(), $listID='');
 
 
-	/**
-	 * This will usually be overridden.
-	 * @return array - key=ID, value=Title
-	 */
-	public function getMailingLists() {
-		return array('default' => 'Default Mailing List');
-	}
+    /**
+     * This will usually be overridden.
+     * @return array - key=ID, value=Title
+     */
+    public function getMailingLists()
+    {
+        return array('default' => 'Default Mailing List');
+    }
 
 
-	/**
-	 * @return string
-	 */
-	public function getDefaultListID() {
-		if ($id = $this->config()->default_list) {
-			return $id;
-		} else {
-			$lists = $this->getMailingLists();
-			if (count($lists)) {
-				reset($lists);
-				return key($lists);
-			}
-		}
+    /**
+     * @return string
+     */
+    public function getDefaultListID()
+    {
+        if ($id = $this->config()->default_list) {
+            return $id;
+        } else {
+            $lists = $this->getMailingLists();
+            if (count($lists)) {
+                reset($lists);
+                return key($lists);
+            }
+        }
 
-		return '';
-	}
-} 
+        return '';
+    }
+}

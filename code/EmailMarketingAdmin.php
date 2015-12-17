@@ -8,9 +8,9 @@
  */
 class EmailMarketingAdmin extends ModelAdmin
 {
-	private static $url_segment = 'email-marketing';
-	private static $menu_title = 'Email Marketing';
-	private static $managed_models = array('FollowUpEmail', 'MailingListEmail');
-	private static $menu_priority = 1;
-	public $showImportForm = false;
+    private static $url_segment = 'email-marketing';
+    private static $menu_title = 'Email Marketing';
+    private static $managed_models = array('FollowUpEmail', 'MailingListEmail');
+    private static $menu_priority = 1;
+    public $showImportForm = false;
 }
