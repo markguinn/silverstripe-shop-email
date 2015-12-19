@@ -9,19 +9,21 @@
  */
 class NullMailingListAdapter extends MailingListAdapter
 {
-	/**
-	 * @param MailingListEmail $email
-	 * @param string           $listID
-	 */
-	function send(MailingListEmail $email, $listID = '') {
-	}
+    /**
+     * @param MailingListEmail $email
+     * @param string           $listID
+     */
+    public function send(MailingListEmail $email, $listID = '')
+    {
+    }
 
 
-	/**
-	 * @param string $emailAddress
-	 * @param array  $data - any additional data
-	 * @param string $listID
-	 */
-	function add($emailAddress, array $data = array(), $listID = '') {
-	}
+    /**
+     * @param string $emailAddress
+     * @param array  $data - any additional data
+     * @param string $listID
+     */
+    public function add($emailAddress, array $data = array(), $listID = '')
+    {
+    }
 }
